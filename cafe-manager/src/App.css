@@ -1,0 +1,100 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --primary: #6F4E37; /* Café vintage */
+  --secondary: #C4A484; /* Latte */
+  --accent: #D2B48C; /* Tan */
+  --light: #F5F5DC; /* Beige */
+  --dark: #3E2723; /* Café noir */
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F9F5F0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--dark);
+}
+
+/* Classes utilitaires Tailwind-like */
+.bg-primary {
+  background-color: var(--primary);
+}
+.text-primary {
+  color: var(--primary);
+}
+.border-primary {
+  border-color: var(--primary);
+}
+
+/* Transition douce pour les liens */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Style de base pour les conteneurs */
+.container {
+  max-width: 1200px;
+}
+
+/* Effet de survol pour les éléments interactifs */
+button, .interactive {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Style pour la page active dans la navbar */
+.active-nav-link {
+  border-bottom: 2px solid #D2B48C;
+  padding-bottom: 2px;
+}

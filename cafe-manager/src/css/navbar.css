@@ -1,0 +1,144 @@
+/* navbar.css - Version Moderne */
+:root {
+  --nav-bg: #5e4123; /* amber-900 modernisé */
+  --nav-text: #f8f3e9;
+  --nav-accent: #d4a762; /* amber-200 modernisé */
+  --nav-badge: #8d6e4b; /* amber-600 modernisé */
+  --nav-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --nav-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: var(--nav-shadow);
+  position: relative;
+  z-index: 50;
+  width: 100%;
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--nav-text);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--nav-transition);
+}
+
+.nav-link:hover {
+  color: var(--nav-accent);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--nav-accent);
+  transition: var(--nav-transition);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: var(--nav-badge);
+  color: white;
+  font-size: 0.65rem;
+  border-radius: 9999px;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Boutons spécifiques à la navbar */
+.nav-button {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--nav-transition);
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button.secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--nav-text);
+}
+
+.nav-button.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Animation d'entrée */
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.navbar {
+  animation: slideIn 0.5s ease-out forwards;
+}

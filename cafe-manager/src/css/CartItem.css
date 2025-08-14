@@ -1,0 +1,140 @@
+/* CartItem.css - Version Moderne */
+:root {
+  --cart-item-bg: #ffffff;
+  --cart-item-border: #f0e6d6;
+  --cart-item-text: #2a2118;
+  --cart-item-text-light: #5a4a32;
+  --cart-item-accent: #8d6e4b;
+  --cart-item-danger: #d94a4a;
+  --cart-item-radius: 12px;
+  --cart-item-shadow: 0 2px 8px rgba(94, 65, 35, 0.08);
+  --cart-item-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--cart-item-bg);
+  border-radius: var(--cart-item-radius);
+  box-shadow: var(--cart-item-shadow);
+  margin-bottom: 0.75rem;
+  transition: var(--cart-item-transition);
+}
+
+.cart-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(94, 65, 35, 0.12);
+}
+
+.cart-item-image {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: var(--cart-item-border);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cart-item:hover .cart-item-image img {
+  transform: scale(1.05);
+}
+
+.cart-item-details {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.cart-item-name {
+  font-weight: 600;
+  color: var(--cart-item-text);
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-price {
+  color: var(--cart-item-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.quantity-button {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cart-item-border);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: var(--cart-item-transition);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--cart-item-accent);
+}
+
+.quantity-button:hover {
+  background-color: var(--cart-item-accent);
+  color: white;
+  transform: scale(1.1);
+}
+
+.quantity-value {
+  width: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--cart-item-text-light);
+  transition: var(--cart-item-transition);
+  padding: 0.25rem;
+  margin-left: 0.5rem;
+}
+
+.remove-button:hover {
+  color: var(--cart-item-danger);
+  transform: scale(1.1);
+}
+
+.remove-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Animation */
+@keyframes itemAppear {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.cart-item {
+  animation: itemAppear 0.4s ease-out forwards;
+}

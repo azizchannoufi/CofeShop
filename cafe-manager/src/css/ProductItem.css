@@ -1,0 +1,126 @@
+/* ProductItem.css - Version Moderne */
+:root {
+  --product-bg: #fff;
+  --product-bg-hover: #f9f5f0;
+  --product-border: #e8d9c0;
+  --product-text: #2a2118;
+  --product-text-light: #5a4a32;
+  --product-price: #8d6e4b;
+  --product-unavailable: #d94a4a;
+  --product-radius: 12px;
+  --product-shadow: 0 2px 12px rgba(94, 65, 35, 0.08);
+  --product-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-item {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  margin: 0.5rem 0;
+  background-color: var(--product-bg);
+  border-radius: var(--product-radius);
+  box-shadow: var(--product-shadow);
+  transition: var(--product-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-item:hover {
+  background-color: var(--product-bg-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(94, 65, 35, 0.12);
+}
+
+.product-image-container {
+  flex-shrink: 0;
+  width: 5rem;
+  height: 5rem;
+  background-color: var(--product-border);
+  border-radius: var(--product-radius);
+  overflow: hidden;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-name {
+  font-weight: 600;
+  color: var(--product-text);
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-description {
+  color: var(--product-text-light);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-weight: 600;
+  color: var(--product-price);
+  font-size: 1.1rem;
+}
+
+.product-unavailable {
+  color: var(--product-unavailable);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(217, 74, 74, 0.1);
+  border-radius: 4px;
+}
+
+/* Badge de nouveauté (optionnel) */
+.product-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #5e4123;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Animation d'apparition */
+@keyframes itemAppear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-item {
+  animation: itemAppear 0.4s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.05s);
+}

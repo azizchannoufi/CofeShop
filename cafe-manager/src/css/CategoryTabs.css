@@ -1,0 +1,81 @@
+/* CategoryTabs.css - Version Moderne */
+:root {
+  --tab-active-bg: #5e4123; /* amber-700 modernisé */
+  --tab-active-text: #fff;
+  --tab-inactive-bg: #f8f3e9; /* amber-100 modernisé */
+  --tab-inactive-text: #5a4a32; /* amber-800 modernisé */
+  --tab-hover-bg: #e8d9c0; /* amber-200 modernisé */
+  --tab-radius: 9999px;
+  --tab-shadow: 0 2px 8px rgba(94, 65, 35, 0.1);
+  --tab-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-tabs-container {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  scrollbar-width: none; /* Firefox */
+}
+
+.category-tabs-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.category-tabs {
+  display: inline-flex;
+  gap: 0.75rem;
+  padding-bottom: 0.25rem;
+}
+
+.category-tab {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--tab-radius);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--tab-transition);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  flex-shrink: 0;
+  box-shadow: var(--tab-shadow);
+}
+
+.category-tab:focus-visible {
+  outline: 2px solid var(--tab-active-bg);
+  outline-offset: 2px;
+}
+
+.category-tab.active {
+  background-color: var(--tab-active-bg);
+  color: var(--tab-active-text);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(94, 65, 35, 0.2);
+}
+
+.category-tab:not(.active) {
+  background-color: var(--tab-inactive-bg);
+  color: var(--tab-inactive-text);
+}
+
+.category-tab:not(.active):hover {
+  background-color: var(--tab-hover-bg);
+  transform: translateY(-1px);
+}
+
+/* Animation d'apparition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-tab {
+  animation: fadeIn 0.4s ease-out forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
